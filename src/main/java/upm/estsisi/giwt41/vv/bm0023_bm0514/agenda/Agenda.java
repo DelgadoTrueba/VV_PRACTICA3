@@ -39,29 +39,24 @@ public class Agenda implements AgendaInterface {
 	 * This function must return true if the contact has been stored successfully (ok)
 	 * and false in the case of duplicate values of name and surname fields.      (ok)
 	 */
+	
+	private boolean esMenorLexicograficamente(Entry actual, Entry p) {
+		return ( actual.getName().compareTo(p.getName()) < 0 || ( actual.getName().compareTo(p.getName()) == 0 && actual.getSurname().compareTo(p.getSurname()) < 0 ) ); 
+	}
+	
+	private boolean esMayorLexicograficamente(Entry actual, Entry p) {
+		return ( actual.getName().compareTo(p.getName()) > 0 || ( actual.getName().compareTo(p.getName()) == 0 && actual.getSurname().compareTo(p.getSurname()) > 0 ) ); 
+	}
+	
 	public boolean addEntry(Entry p) {
 		AgendaNode anterior = first;
 		AgendaNode actual = first;
 		AgendaNode nuevo;
-		
-		boolean condicionCentinela = false;
-		
-//		while (actual != null && !condicionCentinela) {
-		while (
-				actual != null && (
-									actual.info.getName().compareTo(p.getName()) < 0 || 
-									( actual.info.getName().compareTo(p.getName()) == 0 && actual.info.getSurname().compareTo(p.getSurname()) < 0 ) 
-						) 
-			) {
 
-			// CONDICION CENTINELA: MIENTRAS LA ENTRADA ACTUAL SE LEXICOGRAFICAMENTE MENOR (nombre y apellido) A LA BUSCADA AVANZAMOS
-			if (actual.info.compareTo(p) < 0 ) {
-				anterior = actual;
-				actual = actual.sig;
-			}
-			else {
-				condicionCentinela = true;
-			}
+		// CONDICION CENTINELA: MIENTRAS LA AGENDA TENGA ENTRADAS Y LA ENTRADA ACTUAL SEA LEXICOGRAFICAMENTE MENOR (nombre y apellido) A LA BUSCADA AVANZAMOS
+		while (actual != null && ( esMenorLexicograficamente(actual.info, p) ) ) {
+			anterior = actual;
+			actual = actual.sig;		
 		}
 		// SE HA RECORRIDO TODA LA LISTA debido a que NO SE HA ENCONTRADA LA ENTRADA BUSCADA NI UNA ENTRADA LEXICOGRAFICAMENTE MAYOR
 		if(actual == null) {
@@ -78,7 +73,7 @@ public class Agenda implements AgendaInterface {
 		// NO SE HA RECORRIDO TODA LA LISTA
 		else {
 			// NO SE HA RECORRIDO TODA LA LISTA debido a que HEMOS ENCONTRADO UNA ENTRADA LEXICOGRAFICAMENTE MAYOR A LA BUSCADA
-			if (condicionCentinela && (actual.info.compareTo(p) > 0) ){
+			if (esMayorLexicograficamente(actual.info, p)){
 				nuevo = new AgendaNode(p, actual);
 				if(first == actual) { // AÑADIR ANTES DEL PRIMERO
 					first = nuevo; 
