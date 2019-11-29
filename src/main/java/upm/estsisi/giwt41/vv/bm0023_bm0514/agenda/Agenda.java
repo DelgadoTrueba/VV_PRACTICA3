@@ -29,6 +29,10 @@ public class Agenda implements AgendaInterface {
 		first = null;
 		numEntries = 0;
 	}
+	
+	public AgendaNode getFirst() {
+		return first;
+	}
 
 	/** STATIC ANALYSIS
 	 * The function addEntry must add a new contact to the agenda. 
@@ -41,6 +45,9 @@ public class Agenda implements AgendaInterface {
 	 */
 	
 	private boolean esMenorLexicograficamente(Entry actual, Entry p) {
+		System.out.println(actual.getName());
+		System.out.println(p.getName());
+		System.out.println( actual.getName().compareTo(p.getName()));
 		return ( actual.getName().compareTo(p.getName()) < 0 || ( actual.getName().compareTo(p.getName()) == 0 && actual.getSurname().compareTo(p.getSurname()) < 0 ) ); 
 	}
 	
@@ -63,10 +70,12 @@ public class Agenda implements AgendaInterface {
 			nuevo = new AgendaNode(p, null);
 			if(first == null) { // AÑADIR AL PRINCIPIO DE LA LISTA
 				first = nuevo;
+				numEntries++;
 				return true;
 			}
 			else { // AÑADIR AL FINAL DE LA LISTA
 				anterior.sig = nuevo;
+				numEntries++;
 				return true;
 			}
 		}
@@ -77,10 +86,12 @@ public class Agenda implements AgendaInterface {
 				nuevo = new AgendaNode(p, actual);
 				if(first == actual) { // AÑADIR ANTES DEL PRIMERO
 					first = nuevo; 
+					numEntries++;
 					return true;
 				}
 				else { // AÑADIR EN MEDIO
 					anterior.sig = nuevo; 
+					numEntries++;
 					return true;
 				}
 			}

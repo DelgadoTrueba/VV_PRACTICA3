@@ -11,8 +11,7 @@ import upm.estsisi.giwt41.vv.bm0023_bm0514.dijkstra.Dijkstra;
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-    extends TestCase
+public class AppTest extends TestCase
 {
     /**
      * Create the test case
