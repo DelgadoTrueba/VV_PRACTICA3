@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class AgendaTestCase {
+public class AgendaAddEntryTestCase {
 
 	private static Entry eJoseDelgado;
 	private static Entry eJoseBalda;
@@ -28,31 +28,31 @@ public class AgendaTestCase {
 		//Este método se invoca el primero antes de nada
 		eJoseDelgado = new Entry();
 		eJoseDelgado.setName("jose");
-		eJoseDelgado.setName("delgado");
+		eJoseDelgado.setSurname("delgado");
 		
 		eJoseBalda = new Entry();
 		eJoseBalda.setName("jose");
-		eJoseBalda.setName("balda");
+		eJoseBalda.setSurname("balda");
 		
 		eAsierBalda = new Entry();
 		eAsierBalda.setName("asier");
-		eAsierBalda.setName("balda");
+		eAsierBalda.setSurname("balda");
 		
 		eAsierDelgado = new Entry();
 		eAsierDelgado.setName("asier");
-		eAsierDelgado.setName("delgado");
+		eAsierDelgado.setSurname("delgado");
 		
 		eLuisGarcia = new Entry();
 		eLuisGarcia.setName("luis");
-		eLuisGarcia.setName("garcia");
+		eLuisGarcia.setSurname("garcia");
 		
 		eIsabelDelgado = new Entry();
 		eIsabelDelgado.setName("isabel");
-		eIsabelDelgado.setName("delgado");
+		eIsabelDelgado.setSurname("delgado");
 		
 		eIsabelBalda = new Entry();
 		eIsabelBalda.setName("isabel");
-		eIsabelBalda.setName("balda");
+		eIsabelBalda.setSurname("balda");
 		
     }
 	
@@ -126,6 +126,7 @@ public class AgendaTestCase {
 	/***************************** FIN CAMINOS MÍNIMOS **********************************/
 
 	/*****************************  CONDICIONES MULTICLAUSULA **********************************/
+	
 	@Test
 	public void testCase1MultCondicionAddEntry() {
 		
@@ -140,11 +141,63 @@ public class AgendaTestCase {
 	@Test
 	public void testCase2MultCondicionAddEntry() {
 		
-		boolean resul = agendaPrimeraEntradaAsierB.addEntry(eJoseDelgado);
+		boolean resul = agendaPrimeraEntradaAsierDelgado.addEntry(eJoseBalda);
  
 		assertTrue(resul == true);
-		assertTrue(agendaPrimeraEntradaAsierBalda.getFirst().info == eAsierBalda);
-		assertTrue(agendaPrimeraEntradaAsierBalda.getFirst().sig.info == eJoseDelgado);
+		assertTrue(agendaPrimeraEntradaAsierDelgado.getFirst().info == eAsierDelgado);
+		assertTrue(agendaPrimeraEntradaAsierDelgado.getFirst().sig.info == eJoseBalda);
+
+	}
+	
+	@Test
+	public void testCase3MultCondicionAddEntry() {
+		
+		boolean resul = agendaPrimeraEntradaJoseBalda.addEntry(eJoseDelgado);
+ 
+		assertTrue(resul == true);
+		assertTrue(agendaPrimeraEntradaJoseBalda.getFirst().info == eJoseBalda);
+		assertTrue(agendaPrimeraEntradaJoseBalda.getFirst().sig.info == eJoseDelgado);
+
+	}
+	
+	@Test
+	public void testCase4MultCondicionAddEntry() {
+		
+		boolean resul = agendaPrimeraEntradaJoseDelgado.addEntry(eJoseBalda);
+ 
+		assertTrue(resul == true);
+		assertTrue(agendaPrimeraEntradaJoseDelgado.getFirst().info == eJoseBalda);
+		assertTrue(agendaPrimeraEntradaJoseDelgado.getFirst().sig.info == eJoseDelgado);
+
+	}
+	
+	@Test
+	public void testCase5MultCondicionAddEntry() {
+		
+		boolean resul = agendaPrimeraEntradaJoseBalda.addEntry(eIsabelDelgado);
+ 
+		assertTrue(resul == true);
+		assertTrue(agendaPrimeraEntradaJoseBalda.getFirst().info == eIsabelDelgado);
+		assertTrue(agendaPrimeraEntradaJoseBalda.getFirst().sig.info == eJoseBalda);
+
+	}
+	@Test
+	public void testCase6MultCondicionAddEntry() {
+		
+		boolean resul = agendaPrimeraEntradaJoseDelgado.addEntry(eIsabelBalda);
+ 
+		assertTrue(resul == true);
+		assertTrue(agendaPrimeraEntradaJoseDelgado.getFirst().info == eIsabelBalda);
+		assertTrue(agendaPrimeraEntradaJoseDelgado.getFirst().sig.info == eJoseDelgado);
+
+	}
+	@Test
+	public void testCase7MultCondicionAddEntry() {
+		
+		boolean resul = agendaVacia.addEntry(eJoseDelgado);
+ 
+		assertTrue(resul == true);
+		assertTrue(agendaVacia.getFirst().info == eJoseDelgado);
 
 	}
 	/*****************************  FIN CONDICIONES MULTICLAUSULA **********************************/

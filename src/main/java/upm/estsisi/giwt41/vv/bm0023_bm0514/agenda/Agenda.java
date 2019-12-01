@@ -45,9 +45,6 @@ public class Agenda implements AgendaInterface {
 	 */
 	
 	private boolean esMenorLexicograficamente(Entry actual, Entry p) {
-		System.out.println(actual.getName());
-		System.out.println(p.getName());
-		System.out.println( actual.getName().compareTo(p.getName()));
 		return ( actual.getName().compareTo(p.getName()) < 0 || ( actual.getName().compareTo(p.getName()) == 0 && actual.getSurname().compareTo(p.getSurname()) < 0 ) ); 
 	}
 	
@@ -113,19 +110,27 @@ public class Agenda implements AgendaInterface {
 		if (first == null) {
 			return false;
 		}
-
-		AgendaNode prev = first;
-		while (prev.sig != null && prev.sig.info.getName() != name) {
-			prev = prev.sig;
-		}
-
-		if (prev.sig == null) {
-			return false;
-		} else {
-			prev.sig = prev.sig.sig;
-			numEntries--;
+		
+		if(first.info.getName().equals(name)) {
+			first = first.sig;
 			return true;
 		}
+		else {
+			AgendaNode prev = first;
+			
+			while (prev.sig != null && prev.sig.info.getName() != name) {
+				prev = prev.sig;
+			}
+
+			if (prev.sig == null) {
+				return false;
+			} else {
+				prev.sig = prev.sig.sig;
+				numEntries--;
+				return true;
+			}
+		}
+		
 	}
 
 	/** STATIC ANALYSIS
@@ -167,24 +172,30 @@ public class Agenda implements AgendaInterface {
 	public boolean saveAgenda() throws IOException {
 		AgendaNode cur = first;
 		String line;
-		boolean success = false;
 		Parser p = new Parser();
 
-		FileWriter fichero = new FileWriter("agendofile.txt");
-		BufferedWriter bufferescritura = new BufferedWriter(fichero);
-		PrintWriter output = new PrintWriter(bufferescritura);
+		if(first != null){
+			FileWriter fichero = new FileWriter("agendafile.txt");
+			BufferedWriter bufferescritura = new BufferedWriter(fichero);
+			PrintWriter output = new PrintWriter(bufferescritura);
 
-		while (cur != null) {
-			if (!success) {
-				success = true;
+			while (cur != null) {
+				p.insertEntry(cur.info);
+				line = p.getLine();
+				System.out.println(line);
+				output.println(line);
+				
+				cur = cur.sig;
 			}
-			p.insertEntry(cur.info);
-			line = p.getLine();
-			output.println(line);
-		}
 
-		return success;
+			return true;	
+		}
+		else{
+			return false;
+		}
 	}
+
+
 
 	/** STATIC ANALYSIS
 	 * The function loadAgenda must load the agenda from the file agendafile.txt,

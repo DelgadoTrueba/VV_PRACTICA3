@@ -101,14 +101,14 @@ public class Parser {
 	}
 	
 	private String createLine() {
-		String nombre = en. getName ();
-		String apellido = en.getSurname ();
-		String direccion = en.getAddress ();
-		String poblacion = en.getCity ();
-		String provincia = en.getCounty ();
-		String codigo = en.getZip ();
-		String telefono = en.getTelephone ();
-		int anno = en.getBirthYear ();
+		String nombre = en.getName();
+		String apellido = en.getSurname();
+		String direccion = en.getAddress();
+		String poblacion = en.getCity();
+		String provincia = en.getCounty();
+		String codigo = en.getZip();
+		String telefono = en.getTelephone();
+		int anno = en.getBirthYear();
 		String aux2 = "";
 
 		if (en.hasData()) {
