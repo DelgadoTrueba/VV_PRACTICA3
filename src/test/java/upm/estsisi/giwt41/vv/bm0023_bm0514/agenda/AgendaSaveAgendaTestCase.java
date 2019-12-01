@@ -2,6 +2,7 @@ package upm.estsisi.giwt41.vv.bm0023_bm0514.agenda;
 import static org.junit.Assert.assertTrue;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -37,6 +38,11 @@ public class AgendaSaveAgendaTestCase {
 		agendaContieneIsabelJose = new Agenda();
 		agendaContieneIsabelJose.addEntry(eJoseDelgado);
 		agendaContieneIsabelJose.addEntry(eIsabelGarcia);
+		
+		File archivo = new File("agendafile.txt");
+		if(archivo.exists()){
+			archivo.delete();
+		}
     } 
 	
 	
@@ -46,8 +52,10 @@ public class AgendaSaveAgendaTestCase {
 	public void testCase1SaveAgenda() throws IOException {
 		
 		boolean resul = agendaVacia.saveAgenda();
+		File archivo = new File("agendafile.txt");
 		
-		assertTrue(resul == false);
+		assertTrue(resul == false);		
+		assertTrue(archivo.exists() == false);
 	}
 	
 	@Test
@@ -55,7 +63,13 @@ public class AgendaSaveAgendaTestCase {
 		
 		boolean resul = agendaContieneIsabelJose.saveAgenda();
 		
-		FileReader filein = new FileReader("agendafile.txt");
+		assertTrue(resul == true);
+		
+		File archivo = new File("agendafile.txt");
+		
+		assertTrue(archivo.exists() == true);
+		
+		FileReader filein = new FileReader(archivo);
 		BufferedReader bufferin = new BufferedReader(filein);
 		Parser p = new Parser();
 		
@@ -71,7 +85,6 @@ public class AgendaSaveAgendaTestCase {
 		entrada2 = p.getEntry();
 		bufferin.close();
 		
-		assertTrue(resul == true);
 		assertTrue(entrada1.equals(eIsabelGarcia));
 		assertTrue(entrada2.equals(eJoseDelgado));
 	}

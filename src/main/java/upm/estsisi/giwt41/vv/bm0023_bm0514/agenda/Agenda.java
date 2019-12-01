@@ -183,7 +183,6 @@ public class Agenda implements AgendaInterface {
 			while (cur != null) {
 				p.insertEntry(cur.info);
 				line = p.getLine();
-				System.out.println(line);
 				output.println(line);
 				
 				cur = cur.sig;
@@ -226,7 +225,6 @@ public class Agenda implements AgendaInterface {
 				first = null;
 				
 				do {
-					System.out.println(cad);
 					p.insertLine(cad);
 					Entry auxEntry = p.getEntry();
 					if (auxEntry.hasData()) {
