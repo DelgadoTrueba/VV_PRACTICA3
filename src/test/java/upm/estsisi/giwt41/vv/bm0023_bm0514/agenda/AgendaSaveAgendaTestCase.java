@@ -1,6 +1,8 @@
 package upm.estsisi.giwt41.vv.bm0023_bm0514.agenda;
 import static org.junit.Assert.assertTrue;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 
 import org.junit.Before;
@@ -38,8 +40,8 @@ public class AgendaSaveAgendaTestCase {
     } 
 	
 	
-	/*****************************  CAMINOS MÍNIMOS 
-	 * @throws IOException **********************************/
+	/*****************************  CAMINOS MÍNIMOS **********************************/
+	
 	@Test
 	public void testCase1SaveAgenda() throws IOException {
 		
@@ -47,13 +49,31 @@ public class AgendaSaveAgendaTestCase {
 		
 		assertTrue(resul == false);
 	}
+	
 	@Test
 	public void testCase2SaveAgenda() throws IOException{
 		
 		boolean resul = agendaContieneIsabelJose.saveAgenda();
- 
+		
+		FileReader filein = new FileReader("agendafile.txt");
+		BufferedReader bufferin = new BufferedReader(filein);
+		Parser p = new Parser();
+		
+		Entry entrada1, entrada2;
+		String linea;
+		
+		linea = bufferin.readLine();
+		p.insertLine(linea);
+		entrada1 = p.getEntry();
+		
+		linea = bufferin.readLine();
+		p.insertLine(linea);
+		entrada2 = p.getEntry();
+		bufferin.close();
+		
 		assertTrue(resul == true);
-		//assertTrue(agendaContieneIsabelJose.getFirst().info == eJoseDelgado);
+		assertTrue(entrada1.equals(eIsabelGarcia));
+		assertTrue(entrada2.equals(eJoseDelgado));
 	}
-	///***************************** FIN CAMINOS MÍNIMOS **********************************
+	/***************************** FIN CAMINOS MÍNIMOS **********************************/
 }

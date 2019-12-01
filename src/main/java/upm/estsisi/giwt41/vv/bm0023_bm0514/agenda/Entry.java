@@ -186,4 +186,13 @@ public class Entry implements Comparable<Entry>
         return name.compareTo(other.name);
         */
     }
+
+	public boolean equals(Entry other) {
+		return this.name.equals(other.name) && this.surname.equals(other.surname)
+				&& this.address.equals(other.address) && this.city.equals(other.city) 
+				&& this.county.equals(other.county) && this.zip.equals(other.zip) 
+				&& this.telephone.equals(other.telephone) && this.birthYear == (other.birthYear); 
+	}
+	
+	
 }

@@ -2,6 +2,7 @@ package upm.estsisi.giwt41.vv.bm0023_bm0514.agenda;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -187,7 +188,7 @@ public class Agenda implements AgendaInterface {
 				
 				cur = cur.sig;
 			}
-
+			output.close();
 			return true;	
 		}
 		else{
@@ -206,26 +207,38 @@ public class Agenda implements AgendaInterface {
 	 * The function returns true is the file exists and false otherwise.
 	 */
 	public boolean loadAgenda() throws IOException {
-		FileReader filein = new FileReader("agendafile.txt");
-		BufferedReader bufferin = new BufferedReader(filein);
-
-		Parser p = new Parser();
-		String cad;
-		if ((cad = bufferin.readLine()) == null) {
-			bufferin.close();
+		
+		File archivo = new File("agendafile.txt");
+		if(!archivo.exists()){
 			return false;
 		}
-		
-		do {
-			System.out.println(cad);
-			p.insertLine(cad);
-			Entry auxEntry = p.getEntry();
-			if (auxEntry.hasData()) {
-				addEntry(auxEntry);
-			}
-		} while ((cad = bufferin.readLine()) != null);
-		filein.close();
+		else{
+			FileReader filein = new FileReader(archivo);
+			BufferedReader bufferin = new BufferedReader(filein);
 
-		return true;
+			Parser p = new Parser();
+			String cad;
+			
+			if ((cad = bufferin.readLine()) == null) {
+				bufferin.close();
+			}
+			else {				
+				first = null;
+				
+				do {
+					System.out.println(cad);
+					p.insertLine(cad);
+					Entry auxEntry = p.getEntry();
+					if (auxEntry.hasData()) {
+						addEntry(auxEntry);
+					}
+				} while ((cad = bufferin.readLine()) != null);
+				
+				filein.close();
+			}
+
+			return true;
+		}
 	}
+
 }
