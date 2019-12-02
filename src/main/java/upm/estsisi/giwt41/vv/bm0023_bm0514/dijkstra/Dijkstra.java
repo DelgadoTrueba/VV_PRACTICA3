@@ -49,7 +49,7 @@ public class Dijkstra {
 	 * Private function that initializes all the data
 	 * structures as required by the Dijkstra's algorithm.
 	 */
-	private void initializeDataStructures() {
+	public void initializeDataStructures() {
 		// Creates the data structures
 		distances = new Double[nVertices];
 		visited = new boolean[nVertices];
@@ -72,7 +72,7 @@ public class Dijkstra {
 	 * 
 	 * @return Next vertex to be explored.
 	 */
-	private Integer nextCur() {
+	public Integer nextCur() {
 		Integer next = -1;
 		Double cost = Double.POSITIVE_INFINITY;
 		
@@ -181,4 +181,37 @@ public class Dijkstra {
 	public boolean hasErrorHappened() {
 		return error;
 	}
+
+	
+	
+	public Double[] getDistances() {
+		return distances;
+	}
+
+	public boolean[] getVisited() {
+		return visited;
+	}
+
+	public Integer[] getPrev() {
+		return prev;
+	}
+
+	public void setDistances(Double[] distances) {
+		this.distances = distances;
+	}
+
+	public void setVisited(boolean[] visited) {
+		this.visited = visited;
+	}
+
+	public void setPrev(Integer[] prev) {
+		this.prev = prev;
+	}
+	
+	public void setExec(boolean err) {
+		this.dijkstraExec = err;
+	}
+	
+	
+	
 }
