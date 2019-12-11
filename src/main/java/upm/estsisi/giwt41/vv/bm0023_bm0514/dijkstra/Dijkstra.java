@@ -112,7 +112,7 @@ public class Dijkstra {
 		
 		Integer cur = ini;	//Starts in the initial vertex
 		distances[ini]=0.0;	//The cost of the path from ini to itself is 0
-		while(!visited[end]) {
+		while(!visited[end] && cur!=-1) {
 			//For every vertex in the node
 			for(int neigh=0; neigh<nVertices; neigh++) {
 				//If the vertex is connected with the current node and
@@ -164,7 +164,7 @@ public class Dijkstra {
 		//jumping through the previous nodes.
 		Integer cur = end;
 		path.add(cur);
-		while(cur != ini) {
+		while(cur != ini && cur!=-1) {
 			path.add(prev[cur]);
 			cur = prev[cur];
 		}

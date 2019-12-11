@@ -22,7 +22,9 @@ public class AgendaAddEntryTestCase {
 	private Agenda agendaPrimeraEntradaAsierBalda;
 	private Agenda agendaPrimeraEntradaAsierDelgado;
 	private Agenda agendaPrimeraEntradaJoseBalda;
-	 
+	private Agenda agendaUnicaEntradaJoseDelgado;
+	private Agenda agendaVariasEntradas;
+
 	@BeforeClass
 	public static void inicializarVariables() {
 		//Este método se invoca el primero antes de nada
@@ -75,6 +77,14 @@ public class AgendaAddEntryTestCase {
 		
 		agendaPrimeraEntradaJoseBalda = new Agenda();
 		agendaPrimeraEntradaJoseBalda.addEntry(eJoseBalda);
+		
+		agendaUnicaEntradaJoseDelgado = new Agenda();
+		agendaUnicaEntradaJoseDelgado.addEntry(eJoseDelgado);
+		
+		agendaVariasEntradas = new Agenda();
+		agendaVariasEntradas.addEntry(eJoseDelgado);
+		agendaVariasEntradas.addEntry(eAsierBalda);
+
     }  
 	
 	/*****************************  CAMINOS MÍNIMOS **********************************/
@@ -201,5 +211,31 @@ public class AgendaAddEntryTestCase {
 
 	}
 	/*****************************  FIN CONDICIONES MULTICLAUSULA **********************************/
+	
+	/*****************************  CLASES DE EQUIVALENCIA **********************************/
+	@Test
+	public void testCase1EquivalenceClassAddEntry() {
+		
+		boolean resul = agendaVacia.addEntry(eJoseDelgado);
+ 
+		assertTrue(resul == true);
+	}
+	
+	@Test
+	public void testCase2EquivalenceClassAddEntry() {
+		
+		boolean resul = agendaUnicaEntradaJoseDelgado.addEntry(eJoseDelgado);
+ 
+		assertTrue(resul == false);
+	}
+	
+	@Test(expected= NullPointerException.class)
+	public void testCase3EquivalenceClassAddEntry() {
+		
+		boolean resul = agendaVariasEntradas.addEntry(null);
+		assertTrue(resul == false);
+	}
+	
+	/*****************************  FIN CLASES DE EQUIVALENCIA **********************************/
 
 }
