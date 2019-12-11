@@ -111,7 +111,7 @@ public class AgendaAddEntryTestCase {
 		assertTrue(agendaPrimeraEntradaJoseDelgado.getFirst().sig.info == eJoseDelgado);
 	}
 	
-	@Test
+	@Test(expected = Exception.class)
 	public void testCase4AddEntry() {
 		
 		int numEntradasAnterior = agendaPrimeraEntradaJoseDelgado.nEntries();
