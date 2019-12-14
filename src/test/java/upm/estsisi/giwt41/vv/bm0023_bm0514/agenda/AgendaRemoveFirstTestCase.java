@@ -13,6 +13,7 @@ public class AgendaRemoveFirstTestCase {
 
 	private Agenda agendaVacia;
 	private Agenda agendaContieneIsabelJose;
+	private Agenda agendaSoloJose;
 	 
 	@BeforeClass
 	public static void inicializarVariables() {
@@ -35,6 +36,9 @@ public class AgendaRemoveFirstTestCase {
 		agendaContieneIsabelJose = new Agenda();
 		agendaContieneIsabelJose.addEntry(eJoseDelgado);
 		agendaContieneIsabelJose.addEntry(eIsabelGarcia);
+		
+		agendaSoloJose  = new Agenda();
+		agendaSoloJose.addEntry(eJoseDelgado);
     } 
 	
 	
@@ -56,5 +60,25 @@ public class AgendaRemoveFirstTestCase {
 	}
 	/***************************** FIN CAMINOS MÍNIMOS **********************************/
 
+	/*****************************  CLASES DE EQUIVALENCIA **********************************/
+	@Test
+	public void testCase1EquivalenceClassRemoveFirst() {
+		Entry resul = agendaContieneIsabelJose.removeFirst();
+		assertTrue(resul == eIsabelGarcia);
+	}
 	
+	@Test
+	public void testCase2EquivalenceClassRemoveFirst() {
+		Entry resul = agendaVacia.removeFirst();
+		assertTrue(resul == null);
+	}
+	
+	@Test
+	public void testCase3EquivalenceClassRemoveFirst() {
+		Entry resul = agendaSoloJose.removeFirst();
+		assertTrue(resul == eJoseDelgado);
+	}
+
+	/*****************************  FIN CLASES DE EQUIVALENCIA **********************************/
+
 }

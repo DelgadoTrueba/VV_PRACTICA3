@@ -136,4 +136,5 @@ public class AgendaRemoveEntryTestCase {
 	}
 	/*****************************  FIN CLASES DE EQUIVALENCIA **********************************/
 	
+	
 }
