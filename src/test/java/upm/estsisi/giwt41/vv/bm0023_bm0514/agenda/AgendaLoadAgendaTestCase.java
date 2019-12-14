@@ -170,4 +170,83 @@ public class AgendaLoadAgendaTestCase {
 	
 	/***************************** FIN CAMINOS MÍNIMOS **********************************/
 
+	/*****************************  CLASES DE EQUIVALENCIA **********************************/
+	/**TEST CASE REPETIDO*/
+//	@Test
+//	public void testCase1EquivalenceClassLoadAgenda() throws IOException {
+//		File archivo = new File("agendafile.txt");
+//		assertTrue(archivo.exists() == false);
+//		
+//		boolean resul = agendaContieneIsabelJose.loadAgenda();
+//		
+//		assertTrue(resul == false);
+//	}
+	
+	/**TEST CASE REPETIDO*/
+//	@Test
+//	public void testCase2EquivalenceClassLoadAgenda() throws IOException {
+//		File archivoVacio = new File("agendafile.txt");
+//		
+//		FileWriter fichero = new FileWriter(archivoVacio);
+//		BufferedWriter bufferescritura = new BufferedWriter(fichero);
+//		PrintWriter output = new PrintWriter(bufferescritura);
+//		
+//		bufferescritura.close();
+//		
+//		assertTrue(archivoVacio.exists() == true);
+//
+//		boolean resul = agendaContieneIsabelJose.loadAgenda();
+//		
+//		assertTrue(resul == true);
+//	}
+	
+	/**TEST CASE REPETIDO*/
+//	@Test
+//	public void testCase3EquivalenceClassLoadAgenda() throws IOException {
+//		File archivo = new File("agendafile.txt");
+//		
+//		FileWriter fichero = new FileWriter(archivo);
+//		BufferedWriter bufferescritura = new BufferedWriter(fichero);
+//		PrintWriter output = new PrintWriter(bufferescritura);
+//		Parser p = new Parser();
+//		
+//		Entry entrada;
+//		String linea;
+//		
+//		p.insertEntry(eAsierBalda);
+//		linea = p.getLine();
+//		output.println(linea);
+//		
+//		bufferescritura.close();
+//		
+//		boolean resul = agendaContieneIsabelJose.loadAgenda();
+//		
+//		assertTrue(resul == true);
+//	}
+	
+	/**TEST CASE REPETIDO*/
+//	@Test(expected= Exception.class)
+//	public void testCase4EquivalenceClassLoadAgenda() throws IOException {
+//		File archivo = new File("agendafile.txt");
+//		
+//		FileWriter fichero = new FileWriter(archivo);
+//		BufferedWriter bufferescritura = new BufferedWriter(fichero);
+//		PrintWriter output = new PrintWriter(bufferescritura);
+//		Parser p = new Parser();
+//		
+//		Entry entrada;
+//		String linea;
+//		
+//		p.insertEntry(eAsierBalda);
+//		linea = p.getLine();
+//		output.println(linea);
+//		
+//		bufferescritura.close();
+//		
+//		boolean resul = agendaContieneIsabelJose.loadAgenda();
+//	}
+
+	/*****************************  CLASES DE EQUIVALENCIA **********************************/
+	
 }
+
