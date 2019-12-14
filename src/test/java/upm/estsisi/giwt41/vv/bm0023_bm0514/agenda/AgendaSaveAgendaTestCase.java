@@ -16,6 +16,7 @@ public class AgendaSaveAgendaTestCase {
 
 	private Agenda agendaVacia;
 	private Agenda agendaContieneIsabelJose;
+	private Agenda agendaSoloJose;
 	 
 	@BeforeClass
 	public static void inicializarVariables() {
@@ -38,6 +39,9 @@ public class AgendaSaveAgendaTestCase {
 		agendaContieneIsabelJose = new Agenda();
 		agendaContieneIsabelJose.addEntry(eJoseDelgado);
 		agendaContieneIsabelJose.addEntry(eIsabelGarcia);
+		
+		agendaSoloJose = new Agenda();
+		agendaSoloJose.addEntry(eJoseDelgado);
 		
 		File archivo = new File("agendafile.txt");
 		if(archivo.exists()){
@@ -89,4 +93,38 @@ public class AgendaSaveAgendaTestCase {
 		assertTrue(entrada2.equals(eJoseDelgado));
 	}
 	/***************************** FIN CAMINOS MÍNIMOS **********************************/
+	
+	/*****************************  CLASES DE EQUIVALENCIA **********************************/
+	@Test
+	public void testCase1EquivalenceClassSaveAgenda() {
+		try {
+			boolean resul = agendaContieneIsabelJose.saveAgenda();
+			assertTrue(resul == true);
+		} catch (IOException e) {
+			assertTrue(false);
+		}
+	}
+	
+	@Test
+	public void testCase2EquivalenceClassSaveAgenda() {
+		try {
+			boolean resul = agendaVacia.saveAgenda();
+			assertTrue(resul == false);
+		} catch (IOException e) {
+			assertTrue(false);
+		}
+	}
+	
+	@Test
+	public void testCase3EquivalenceClassSaveAgenda() {
+		try {
+			boolean resul = agendaSoloJose.saveAgenda();
+			assertTrue(resul == true);
+		} catch (IOException e) {
+			assertTrue(false);
+		}
+	}
+
+	/*****************************  FIN CLASES DE EQUIVALENCIA **********************************/
+
 }
