@@ -15,7 +15,9 @@ public class AgendaRemoveEntryTestCase {
 
 	private Agenda agendaVacia;
 	private Agenda agendaContieneIsabelJose;
+	private Agenda agendaContieneAsierJose;
 	private Agenda agendaContieneJose;
+	private Agenda agendaSoloAsier;
 	 
 	@BeforeClass
 	public static void inicializarVariables() {
@@ -42,9 +44,16 @@ public class AgendaRemoveEntryTestCase {
 		agendaContieneJose = new Agenda();
 		agendaContieneJose.addEntry(eJoseDelgado);
 		
+		agendaSoloAsier = new Agenda();
+		agendaSoloAsier.addEntry(eAsierBalda);
+		
 		agendaContieneIsabelJose = new Agenda();
 		agendaContieneIsabelJose.addEntry(eJoseDelgado);
 		agendaContieneIsabelJose.addEntry(eIsabelGarcia);
+		
+		agendaContieneAsierJose = new Agenda();
+		agendaContieneAsierJose.addEntry(eAsierBalda);
+		agendaContieneAsierJose.addEntry(eJoseDelgado);
     } 
 	
 	
@@ -95,5 +104,36 @@ public class AgendaRemoveEntryTestCase {
 	/*****************************  CONDICIONES MULTICLAUSULA **********************************/
 	
 	/*****************************  FIN CONDICIONES MULTICLAUSULA **********************************/
+	
+	/*****************************  CLASES DE EQUIVALENCIA **********************************/
+	@Test
+	public void testCase1EquivalenceClassRemoveEntry() {
+		boolean resul = agendaContieneAsierJose.removeEntry(eAsierBalda.getName());
+		
+		assertTrue(resul == true);
+	}
+	
+	@Test
+	public void testCase2EquivalenceClassRemoveEntry() {
+		boolean resul = agendaVacia.removeEntry(eAsierBalda.getName());
+		
+		assertTrue(resul == false);
+	}
+	
+	@Test
+	public void testCase3EquivalenceClassRemoveEntry() {
+		boolean resul = agendaSoloAsier.removeEntry(eAsierBalda.getName());
+		
+		assertTrue(resul == true);
+	}
+	
+	// Debería dar un error y no lo da.
+	@Test(expected= Exception.class)
+	public void testCase4EquivalenceClassRemoveEntry() {
+		boolean resul = agendaContieneAsierJose.removeEntry(" ");
+		
+		assertTrue(resul == true);
+	}
+	/*****************************  FIN CLASES DE EQUIVALENCIA **********************************/
 	
 }

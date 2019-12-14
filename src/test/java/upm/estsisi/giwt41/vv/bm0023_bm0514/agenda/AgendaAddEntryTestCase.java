@@ -121,7 +121,7 @@ public class AgendaAddEntryTestCase {
 		assertTrue(agendaPrimeraEntradaJoseDelgado.getFirst().sig.info == eJoseDelgado);
 	}
 	
-	@Test
+	@Test(expected = Exception.class)
 	public void testCase4AddEntry() {
 		
 		int numEntradasAnterior = agendaPrimeraEntradaJoseDelgado.nEntries();
@@ -216,21 +216,29 @@ public class AgendaAddEntryTestCase {
 	@Test
 	public void testCase1EquivalenceClassAddEntry() {
 		
-		boolean resul = agendaVacia.addEntry(eJoseDelgado);
+		boolean resul = agendaVariasEntradas.addEntry(eAsierBalda);
  
-		assertTrue(resul == true);
+		assertTrue(resul == false);
 	}
 	
 	@Test
 	public void testCase2EquivalenceClassAddEntry() {
 		
-		boolean resul = agendaUnicaEntradaJoseDelgado.addEntry(eJoseDelgado);
+		boolean resul = agendaVacia.addEntry(eAsierBalda);
  
-		assertTrue(resul == false);
+		assertTrue(resul == true);
+	}
+	
+	@Test
+	public void testCase3EquivalenceClassAddEntry() {
+		
+		boolean resul = agendaPrimeraEntradaAsierBalda.addEntry(eJoseDelgado);
+ 
+		assertTrue(resul == true);
 	}
 	
 	@Test(expected= NullPointerException.class)
-	public void testCase3EquivalenceClassAddEntry() {
+	public void testCase4EquivalenceClassAddEntry() {
 		
 		boolean resul = agendaVariasEntradas.addEntry(null);
 		assertTrue(resul == false);
