@@ -13,6 +13,8 @@ public class DijkstraNextCurTestCase {
 
 	private Dijkstra diklstraNentriesCero;
 	private Dijkstra diklstraNentriesCinco;
+	private Dijkstra diklstraNentriesTres;
+
 
 	@BeforeClass
 	public static void inicializarVariables() {
@@ -21,6 +23,11 @@ public class DijkstraNextCurTestCase {
 			{},
 		};
 		
+		matriz3x3 = new Double[][]{
+			{0.0, 7.0, 5.0},
+			{7.0, 0.0, 0.0},
+			{5.0, 0.0, 0.0},
+		};
 
 		matriz5x5 = new Double[][]{
 			{0.0, 7.0, 5.0, 2.0, 0.0, 0.0},
@@ -35,6 +42,7 @@ public class DijkstraNextCurTestCase {
 	@Before  
     public void setUp() {   
 		diklstraNentriesCero = new Dijkstra(matriz0x0,0);
+		diklstraNentriesTres = new Dijkstra(matriz3x3,3);
 		diklstraNentriesCinco = new Dijkstra(matriz5x5,5);
 	}
 	
@@ -129,5 +137,44 @@ public class DijkstraNextCurTestCase {
 	}
 	
 	/*****************************  FIN CONDICIONES MULTICLAUSULA **********************************/
+
+	/***************************** CLASES DE EQUIVALENCIA **********************************/
+	@Test()
+	public void testCase1EquivalenceClassNextCur() {
+		boolean[] visited = new boolean[] {true, true, true};
+		Double[] distances = new Double[] {0.0, 3.0, 4.0};
+		
+		diklstraNentriesTres.setVisited(visited);
+		diklstraNentriesTres.setDistances(distances);
+
+		Integer resul = diklstraNentriesTres.nextCur();
+		assertTrue(resul == -1);
+	}
+	
+	@Test()
+	public void testCase2EquivalenceClassNextCur() {
+		boolean[] visited = new boolean[] {true, true, false};
+		Double[] distances = new Double[] {0.0, 3.0, 4.0};
+		
+		diklstraNentriesTres.setVisited(visited);
+		diklstraNentriesTres.setDistances(distances);
+
+		Integer resul = diklstraNentriesTres.nextCur();
+		assertTrue(resul == 2);
+	}
+	
+	@Test()
+	public void testCase3EquivalenceClassNextCur() {
+		boolean[] visited = new boolean[] {true, true, true, false, false};
+		Double[] distances = new Double[] {0.0, 3.0, 4.0, Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY};
+		
+		diklstraNentriesTres.setVisited(visited);
+		diklstraNentriesTres.setDistances(distances);
+
+		Integer resul = diklstraNentriesTres.nextCur();
+		assertTrue(resul == -1);
+	}
+
+	/***************************** FIN CLASES DE EQUIVALENCIA **********************************/
 
 }

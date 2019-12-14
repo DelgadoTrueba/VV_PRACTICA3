@@ -241,7 +241,6 @@ public class AgendaAddEntryTestCase {
 	public void testCase4EquivalenceClassAddEntry() {
 		
 		boolean resul = agendaVariasEntradas.addEntry(null);
-		assertTrue(resul == false);
 	}
 	
 	/*****************************  FIN CLASES DE EQUIVALENCIA **********************************/
