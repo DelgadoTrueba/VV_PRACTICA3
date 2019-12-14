@@ -164,7 +164,7 @@ public class Dijkstra {
 		//jumping through the previous nodes.
 		Integer cur = end;
 		path.add(cur);
-		while(cur != ini && cur!=-1) {
+		while(cur != ini) {
 			path.add(prev[cur]);
 			cur = prev[cur];
 		}

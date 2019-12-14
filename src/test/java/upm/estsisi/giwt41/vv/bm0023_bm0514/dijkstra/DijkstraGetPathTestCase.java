@@ -10,8 +10,11 @@ import org.junit.Test;
 
 public class DijkstraGetPathTestCase {
 	
+	private static Double[][] matriz3x3;
 	private static Double[][] matriz5x5;
+	
 	private Dijkstra dijkstra;
+	private Dijkstra diklstraNentriesTres;
 	
 	@BeforeClass
 	public static void inicializarVariables() {
@@ -23,11 +26,19 @@ public class DijkstraGetPathTestCase {
 			{0.0, 0.0, 6.0, 0.0, 0.0, 1.0},
 			{0.0, 0.0, 0.0, 8.0, 1.0, 0.0}
 		};
+		
+		matriz3x3 = new Double[][]{
+			{0.0, 2.0, 0.0},
+			{0.0, 0.0, 0.0},
+			{0.0, 0.0, 0.0},
+		};
+		
 	}
 	
 	@Before  
     public void setUp() {   
 		dijkstra = new Dijkstra(matriz5x5, 5);
+		diklstraNentriesTres = new Dijkstra(matriz3x3,3);
 	}
 	
 	/*****************************  CAMINOS MÍNIMOS **********************************/
@@ -74,4 +85,42 @@ public class DijkstraGetPathTestCase {
 	}
 	/***************************** FIN CAMINOS MÍNIMOS **********************************/
 
+	/*****************************  CLASES DE EQUIVALENCIA **********************************/
+	@Test(expected = Exception.class)
+	public void testCase1EquivalenceClassShortestPath() {
+		diklstraNentriesTres.computeShortestPath(0, 2);
+		ArrayList<Integer> path = diklstraNentriesTres.getPath(0, 2);
+	}
+	
+	@Test
+	public void testCase2EquivalenceClassShortestPath() {
+		diklstraNentriesTres.computeShortestPath(0, 1);
+		ArrayList<Integer> path = diklstraNentriesTres.getPath(0, 1);
+		ArrayList<Integer> pathEsperado = new ArrayList<Integer>();
+		pathEsperado.add(new Integer(1));
+		pathEsperado.add(new Integer(0));
+
+	
+		assertTrue(path.equals(pathEsperado));
+	}
+	
+	@Test(expected = Exception.class)
+	public void testCase4EquivalenceClassShortestPath() {
+		diklstraNentriesTres.setExec(true);
+		ArrayList<Integer> path = diklstraNentriesTres.getPath(null, -5);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testCase5EquivalenceClassShortestPath() {
+		diklstraNentriesTres.setExec(true);
+		ArrayList<Integer> path = diklstraNentriesTres.getPath(-1, 10);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testCase6EquivalenceClassShortestPath() {
+		diklstraNentriesTres.setExec(true);
+		ArrayList<Integer> path = diklstraNentriesTres.getPath(6, null);
+	}
+	
+	/*****************************  FIN CLASES DE EQUIVALENCIA **********************************/
 }
