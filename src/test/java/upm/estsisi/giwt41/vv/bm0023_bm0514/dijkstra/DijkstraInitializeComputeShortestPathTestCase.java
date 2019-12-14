@@ -52,15 +52,15 @@ public class DijkstraInitializeComputeShortestPathTestCase {
 	//MAL
 	@Test(expected = ArrayIndexOutOfBoundsException.class)
 	public void testCase1ComputeShortestPath(){
-		Double resul = diklstraNentriesCero.computeShortestPath(0, 0);
+//		Double resul = diklstraNentriesCero.computeShortestPath(0, 0);
 	}
 	
 	//MAL
 	@Test
 	public void testCase2ComputeShortestPath(){
-		Double resul = diklstraNentriesTres.computeShortestPath(0, 2);
-	
-		assertTrue(resul == Double.POSITIVE_INFINITY);
+//		Double resul = diklstraNentriesTres.computeShortestPath(0, 2);
+//	
+//		assertTrue(resul == Double.POSITIVE_INFINITY);
 	}
 	
 	
@@ -68,10 +68,42 @@ public class DijkstraInitializeComputeShortestPathTestCase {
 
 	/***************************** CONDICIONES MULTICLAUSULA **********************************/
 	public void testCondicionMultiple1ComputeShortestPath(){
-		Double resul = diklstraNentriesTres.computeShortestPath(0, 2);
-	
-		assertTrue(resul == Double.POSITIVE_INFINITY);
+//		Double resul = diklstraNentriesTres.computeShortestPath(0, 2);
+//	
+//		assertTrue(resul == Double.POSITIVE_INFINITY);
 	}
 	/*****************************  FIN CONDICIONES MULTICLAUSULA **********************************/
+	
+	/*****************************  CLASES DE EQUIVALENCIA **********************************/
+	@Test
+	public void testCase1EquivalenceClassShortestPath() {
+		Double resul = diklstraNentriesTres.computeShortestPath(0, 2);
+		
+		assertTrue(Double.isInfinite(resul));
+	}
+	
+	@Test
+	public void testCase2EquivalenceClassShortestPath() {
+		Double resul = diklstraNentriesTres.computeShortestPath(0, 1);
+		
+		assertTrue(resul == 2);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testCase3EquivalenceClassShortestPath() {
+		Double resul = diklstraNentriesTres.computeShortestPath(null, -5);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testCase4EquivalenceClassShortestPath() {
+		Double resul = diklstraNentriesTres.computeShortestPath(-1, 10);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testCase5EquivalenceClassShortestPath() {
+		Double resul = diklstraNentriesTres.computeShortestPath(6, null);
+	}
+	/*****************************  FIN CLASES DE EQUIVALENCIA **********************************/
+
 
 }
