@@ -143,8 +143,6 @@ public class AgendaRemoveEntryTestCase {
 	@Test(expected= Exception.class)
 	public void testCase4EquivalenceClassRemoveEntry() {
 		boolean resul = agendaContieneAsierJose.removeEntry(" ");
-		
-		assertTrue(resul == true);
 	}
 	/*****************************  FIN CLASES DE EQUIVALENCIA **********************************/
 	
