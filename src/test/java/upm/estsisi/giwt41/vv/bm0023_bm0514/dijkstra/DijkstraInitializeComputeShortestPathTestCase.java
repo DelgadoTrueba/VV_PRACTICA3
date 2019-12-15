@@ -49,29 +49,144 @@ public class DijkstraInitializeComputeShortestPathTestCase {
 	
 	/*****************************  CAMINOS MÍNIMOS **********************************/
 	
-	//MAL
+
 	@Test(expected = ArrayIndexOutOfBoundsException.class)
 	public void testCase1ComputeShortestPath(){
-//		Double resul = diklstraNentriesCero.computeShortestPath(0, 0);
+		Double resul = diklstraNentriesCero.computeShortestPath(0, 0);
 	}
 	
-	//MAL
+	
 	@Test
 	public void testCase2ComputeShortestPath(){
-//		Double resul = diklstraNentriesTres.computeShortestPath(0, 2);
-//	
-//		assertTrue(resul == Double.POSITIVE_INFINITY);
+		Double resul = diklstraNentriesTres.computeShortestPath(0, 2);
+
+		assertTrue(Double.isInfinite(resul));
+	}
+	
+	@Test
+	public void testCase3ComputeShortestPath(){
+		Double[][] matriz = new Double[][] {
+			{0.0, 7.0, 1.0},
+			{7.0, 0.0, 7.0},
+			{1.0, 7.0, 0.0}
+		};
+		Integer nVertices = 3;
+		
+		Dijkstra dijkstra = new Dijkstra(matriz, nVertices);
+		Double resul = dijkstra.computeShortestPath(0, 1);
+
+		assertTrue(resul==7);
+	}
+	
+	@Test
+	public void testCase4ComputeShortestPath(){
+		Double[][] matriz = new Double[][] {
+			{0.0, 7.0},
+			{7.0, 0.0},
+		};
+		Integer nVertices = 2;
+		
+		Dijkstra dijkstra = new Dijkstra(matriz, nVertices);
+		Double resul = dijkstra.computeShortestPath(0, 1);
+
+		assertTrue(resul==7);
 	}
 	
 	
 	/*****************************  FIN CAMINOS MÍNIMOS **********************************/
 
 	/***************************** CONDICIONES MULTICLAUSULA **********************************/
+	//if
+	@Test
 	public void testCondicionMultiple1ComputeShortestPath(){
-//		Double resul = diklstraNentriesTres.computeShortestPath(0, 2);
-//	
-//		assertTrue(resul == Double.POSITIVE_INFINITY);
+		Double[][] matriz = new Double[][] {
+			{0.0, 7.0, 0.0},
+			{7.0, 0.0, 0.0},
+			{0.0, 0.0, 0.0},
+		};
+		Integer nVertices = 3;
+		
+		Dijkstra dijkstra = new Dijkstra(matriz, nVertices);
+		Double resul = dijkstra.computeShortestPath(0, 1);
+
+		assertTrue(resul==7);
 	}
+	
+	@Test
+	public void testCondicionMultiple2ComputeShortestPath(){
+		Double[][] matriz = new Double[][] {
+			{0.0, 7.0, 2.0},
+			{7.0, 0.0, 0.0},
+			{2.0, 0.0, 0.0},
+		};
+		Integer nVertices = 3;
+		
+		Dijkstra dijkstra = new Dijkstra(matriz, nVertices);
+		Double resul = dijkstra.computeShortestPath(0, 2);
+
+		assertTrue(resul==2);
+	}
+	
+	@Test
+	public void testCondicionMultiple3ComputeShortestPath(){
+		Double[][] matriz = new Double[][] {
+			{0.0, 7.0, 0.0},
+			{0.0, 0.0, 0.0},
+			{0.0, 0.0, 0.0},
+		};
+		Integer nVertices = 3;
+		
+		Dijkstra dijkstra = new Dijkstra(matriz, nVertices);
+		Double resul = dijkstra.computeShortestPath(0, 2);
+
+		assertTrue(Double.POSITIVE_INFINITY == resul);
+	}
+	//while
+	@Test
+	public void testCondicionMultiple1WHILEComputeShortestPath(){
+		Double[][] matriz = new Double[][] {
+			{0.0, 2.0, 7.0},
+			{2.0, 0.0, 0.0},
+			{7.0, 0.0, 0.0},
+		};
+		Integer nVertices = 3;
+		
+		Dijkstra dijkstra = new Dijkstra(matriz, nVertices);
+		Double resul = dijkstra.computeShortestPath(0, 2);
+
+		assertTrue(resul == 7);
+	}
+	
+	@Test
+	public void testCondicionMultiple2WHILEComputeShortestPath(){
+		Double[][] matriz = new Double[][] {
+			{0.0, 0.0, 0.0},
+			{0.0, 0.0, 0.0},
+			{0.0, 0.0, 0.0},
+		};
+		Integer nVertices = 3;
+		
+		Dijkstra dijkstra = new Dijkstra(matriz, nVertices);
+		Double resul = dijkstra.computeShortestPath(0, 2);
+
+		assertTrue(Double.POSITIVE_INFINITY == resul);
+	}
+	
+	@Test
+	public void testCondicionMultiple3WHILEComputeShortestPath(){
+		Double[][] matriz = new Double[][] {
+			{0.0, 2.0, 7.0},
+			{2.0, 0.0, 0.0},
+			{7.0, 0.0, 0.0},
+		};
+		Integer nVertices = 3;
+		
+		Dijkstra dijkstra = new Dijkstra(matriz, nVertices);
+		Double resul = dijkstra.computeShortestPath(0, 0);
+
+		assertTrue(resul == 0);
+	}
+	
 	/*****************************  FIN CONDICIONES MULTICLAUSULA **********************************/
 	
 	/*****************************  CLASES DE EQUIVALENCIA **********************************/

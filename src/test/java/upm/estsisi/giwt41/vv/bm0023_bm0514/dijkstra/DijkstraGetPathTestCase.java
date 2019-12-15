@@ -69,15 +69,14 @@ public class DijkstraGetPathTestCase {
 	
 	@Test
 	public void testCase3GetPath(){
-		Integer[] prev = new Integer[] {-1, 3, 0, 0, 2, 3};
+		Integer[] prev = new Integer[] {-1, 3, 0, 0, 2};
 		
 		dijkstra.setPrev(prev);
 		dijkstra.setExec(true);
 
-		ArrayList<Integer> path = dijkstra.getPath(0, 5);
+		ArrayList<Integer> path = dijkstra.getPath(0, 2);
 		ArrayList<Integer> pathEsperado = new ArrayList<Integer>();
-		pathEsperado.add(new Integer(5));
-		pathEsperado.add(new Integer(3));
+		pathEsperado.add(new Integer(2));
 		pathEsperado.add(new Integer(0));
 
 	
