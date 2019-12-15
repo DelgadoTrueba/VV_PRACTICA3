@@ -15,6 +15,9 @@ public class AgendaAddEntryTestCase {
 	private static Entry eLuisGarcia;
 	private static Entry eIsabelDelgado;
 	private static Entry eIsabelBalda;
+	private static Entry eJuanMartinez;
+	
+	
 
 	private Agenda agendaVacia;
 	private Agenda agendaPrimeraEntradaJoseDelgado;
@@ -56,7 +59,9 @@ public class AgendaAddEntryTestCase {
 		eIsabelBalda.setName("isabel");
 		eIsabelBalda.setSurname("balda");
 		
-    }
+		eJuanMartinez = new Entry();
+		
+	}
 	
 	@Before  
     public void setUp() {   
@@ -88,7 +93,9 @@ public class AgendaAddEntryTestCase {
     }  
 	
 	/*****************************  CAMINOS MÍNIMOS **********************************/
+/*
 	@Test
+ 
 	public void testCase1AddEntry(){
 		 		 
 		boolean resul = agendaVacia.addEntry(eJoseDelgado);
@@ -132,11 +139,11 @@ public class AgendaAddEntryTestCase {
 		assertTrue(agendaPrimeraEntradaJoseDelgado.getFirst().info == eJoseDelgado);
 		assertTrue(agendaPrimeraEntradaJoseDelgado.getFirst().sig.info == eLuisGarcia);
 	}
-	
+*/	
 	/***************************** FIN CAMINOS MÍNIMOS **********************************/
 
 	/*****************************  CONDICIONES MULTICLAUSULA **********************************/
-	
+/*	
 	@Test
 	public void testCase1MultCondicionAddEntry() {
 		
@@ -210,9 +217,12 @@ public class AgendaAddEntryTestCase {
 		assertTrue(agendaVacia.getFirst().info == eJoseDelgado);
 
 	}
+	*/
 	/*****************************  FIN CONDICIONES MULTICLAUSULA **********************************/
 	
+
 	/*****************************  CLASES DE EQUIVALENCIA **********************************/
+	/*
 	@Test
 	public void testCase1EquivalenceClassAddEntry() {
 		
@@ -242,7 +252,129 @@ public class AgendaAddEntryTestCase {
 		
 		boolean resul = agendaVariasEntradas.addEntry(null);
 	}
-	
+	*/
 	/*****************************  FIN CLASES DE EQUIVALENCIA **********************************/
-
+    /***************************** VALORES LÍMITES *****************************/
+	@Test
+	public void testCase1LimitEvaluesAddEntry() {
+		
+		eJuanMartinez.setName("juan");
+		eJuanMartinez.setSurname("martinez");
+		eJuanMartinez.setAddress("");
+		eJuanMartinez.setCity("madrid");
+		eJuanMartinez.setCounty("españa");
+		eJuanMartinez.setZip("28008");
+		eJuanMartinez.setTelephone("611499449");
+		eJuanMartinez.setBirthYear(1997);
+		
+		boolean resul = agendaVacia.addEntry(eJuanMartinez);
+		assert(resul == true);
+	}
+	@Test
+	public void testCase2LimitEvaluesAddEntry() {
+		
+		eJuanMartinez.setName("juan");
+		eJuanMartinez.setSurname("martinez");
+		eJuanMartinez.setAddress("moncloa");
+		eJuanMartinez.setCity("madrid");
+		eJuanMartinez.setCounty("españa");
+		eJuanMartinez.setZip("28008");
+		eJuanMartinez.setTelephone("611499449");
+		eJuanMartinez.setBirthYear(1997);
+		
+		boolean resul = agendaVacia.addEntry(eJuanMartinez);
+		assert(resul == true);
+	}
+	@Test
+	public void testCase3LimitEvaluesAddEntry() {
+		
+		eJuanMartinez.setName("juan");
+		eJuanMartinez.setSurname("martinez");
+		eJuanMartinez.setAddress("moncloa");
+		eJuanMartinez.setCity("");
+		eJuanMartinez.setCounty("españa");
+		eJuanMartinez.setZip("28008");
+		eJuanMartinez.setTelephone("611499449");
+		eJuanMartinez.setBirthYear(1997);
+		
+		boolean resul = agendaVacia.addEntry(eJuanMartinez);
+		assert(resul == true);
+	}
+	@Test
+	public void testCase4LimitEvaluesAddEntry() {
+		
+		eJuanMartinez.setName("juan");
+		eJuanMartinez.setSurname("martinez");
+		eJuanMartinez.setAddress("moncloa");
+		eJuanMartinez.setCity("madrid");
+		eJuanMartinez.setCounty("");
+		eJuanMartinez.setZip("28008");
+		eJuanMartinez.setTelephone("611499449");
+		eJuanMartinez.setBirthYear(1997);
+		
+		boolean resul = agendaVacia.addEntry(eJuanMartinez);
+		assert(resul == true);
+	}
+	@Test
+	public void testCase5LimitEvaluesAddEntry() {
+		
+		eJuanMartinez.setName("juan");
+		eJuanMartinez.setSurname("martinez");
+		eJuanMartinez.setAddress("moncloa");
+		eJuanMartinez.setCity("madrid");
+		eJuanMartinez.setCounty("españa");
+		eJuanMartinez.setZip("");
+		eJuanMartinez.setTelephone("611499449");
+		eJuanMartinez.setBirthYear(1997);
+		
+		boolean resul = agendaVacia.addEntry(eJuanMartinez);
+		assert(resul == true);
+	}
+	@Test
+	public void testCase6LimitEvaluesAddEntry() {
+		
+		eJuanMartinez.setName("juan");
+		eJuanMartinez.setSurname("martinez");
+		eJuanMartinez.setAddress("moncloa");
+		eJuanMartinez.setCity("madrid");
+		eJuanMartinez.setCounty("españa");
+		eJuanMartinez.setZip("28008");
+		eJuanMartinez.setTelephone("");
+		eJuanMartinez.setBirthYear(1997);
+		
+		boolean resul = agendaVacia.addEntry(eJuanMartinez);
+		assert(resul == true);
+	}
+	@Test
+	public void testCase7LimitEvaluesAddEntry() {
+		
+		eJuanMartinez.setName("juan");
+		eJuanMartinez.setSurname("martinez");
+		eJuanMartinez.setAddress("moncloa");
+		eJuanMartinez.setCity("madrid");
+		eJuanMartinez.setCounty("españa");
+		eJuanMartinez.setZip("28008");
+		eJuanMartinez.setTelephone("611499449");
+		eJuanMartinez.setBirthYear(0);
+		
+		boolean resul = agendaVacia.addEntry(eJuanMartinez);
+		assert(resul == true);
+	}
+	@Test
+	public void testCase8LimitEvaluesAddEntry() {
+		
+		eJuanMartinez.setName("juan");
+		eJuanMartinez.setSurname("martinez");
+		eJuanMartinez.setAddress("moncloa");
+		eJuanMartinez.setCity("madrid");
+		eJuanMartinez.setCounty("españa");
+		eJuanMartinez.setZip("28008");
+		eJuanMartinez.setTelephone("611499449");
+		eJuanMartinez.setBirthYear(2019);
+		
+		boolean resul = agendaVacia.addEntry(eJuanMartinez);
+		assert(resul == true);
+	}
+	 /***************************** FIN VALORES LÍMITES *****************************/
+	
 }
