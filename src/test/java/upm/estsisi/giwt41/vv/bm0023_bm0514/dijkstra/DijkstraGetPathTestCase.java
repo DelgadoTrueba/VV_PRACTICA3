@@ -85,13 +85,13 @@ public class DijkstraGetPathTestCase {
 
 	/*****************************  CLASES DE EQUIVALENCIA **********************************/
 	@Test(expected = Exception.class)
-	public void testCase1EquivalenceClassShortestPath() {
+	public void testCase1EquivalenceClassGetPath() {
 		diklstraNentriesTres.computeShortestPath(0, 2);
 		ArrayList<Integer> path = diklstraNentriesTres.getPath(0, 2);
 	}
 	
 	@Test
-	public void testCase2EquivalenceClassShortestPath() {
+	public void testCase2EquivalenceClassGetPath() {
 		diklstraNentriesTres.computeShortestPath(0, 1);
 		ArrayList<Integer> path = diklstraNentriesTres.getPath(0, 1);
 		ArrayList<Integer> pathEsperado = new ArrayList<Integer>();
@@ -103,22 +103,64 @@ public class DijkstraGetPathTestCase {
 	}
 	
 	@Test(expected = Exception.class)
-	public void testCase4EquivalenceClassShortestPath() {
+	public void testCase4EquivalenceClassGetPath() {
 		diklstraNentriesTres.setExec(true);
 		ArrayList<Integer> path = diklstraNentriesTres.getPath(null, -5);
 	}
 	
 	@Test(expected = Exception.class)
-	public void testCase5EquivalenceClassShortestPath() {
+	public void testCase5EquivalenceClassGetPath() {
 		diklstraNentriesTres.setExec(true);
 		ArrayList<Integer> path = diklstraNentriesTres.getPath(-1, 10);
 	}
 	
 	@Test(expected = Exception.class)
-	public void testCase6EquivalenceClassShortestPath() {
+	public void testCase6EquivalenceClassGetPath() {
 		diklstraNentriesTres.setExec(true);
 		ArrayList<Integer> path = diklstraNentriesTres.getPath(6, null);
 	}
 	
 	/*****************************  FIN CLASES DE EQUIVALENCIA **********************************/
+	
+	/***************************************** VALORES LÍMITES *****************************************/
+	/*Debería dar un error pero no es así*/
+	
+	@Test(expected = Exception.class)
+	public void testCase1LimitValuesGetPath() {
+		dijkstra.setExec(true);
+		ArrayList<Integer> path = dijkstra.getPath(-1, -1);
+	}
+	@Test(expected = Exception.class)
+	public void testCase2LimitValuesGetPath() {
+		dijkstra.setExec(true);
+		ArrayList<Integer> path = dijkstra.getPath(-1, 0);
+	}
+	@Test(expected = Exception.class)
+	public void testCase3LimitValuesGetPath() {
+		dijkstra.setExec(true);
+		ArrayList<Integer> path = dijkstra.getPath(-1, 1);
+	}
+	@Test(expected = Exception.class)
+	public void testCase4LimitValuesGetPath() {
+		dijkstra.setExec(true);
+		ArrayList<Integer> path = dijkstra.getPath(-1, 2);
+	}
+	@Test(expected = Exception.class)
+	public void testCase5LimitValuesGetPath() {
+		dijkstra.setExec(true);
+		ArrayList<Integer> path = dijkstra.getPath(-1, 3);
+	}
+	@Test(expected = Exception.class)
+	public void testCase6LimitValuesGetPath() {
+		dijkstra.setExec(true);
+		ArrayList<Integer> path = dijkstra.getPath(-1, 4);
+	}
+	@Test(expected = Exception.class)
+	public void testCase7LimitValuesGetPath() {
+		dijkstra.setExec(true);
+		ArrayList<Integer> path = dijkstra.getPath(-1, 5);
+	}
+	
+
+	/***************************************** VALORES LÍMITES *****************************************/
 }
