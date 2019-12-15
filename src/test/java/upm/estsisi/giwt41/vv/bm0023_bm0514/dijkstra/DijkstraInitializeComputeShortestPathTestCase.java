@@ -219,6 +219,279 @@ public class DijkstraInitializeComputeShortestPathTestCase {
 		Double resul = diklstraNentriesTres.computeShortestPath(6, null);
 	}
 	/*****************************  FIN CLASES DE EQUIVALENCIA **********************************/
+	  /***************************************** VALORES LÍMITES *****************************************/
+	@Test(expected = Exception.class)
+	public void testCase1LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(-1, -1);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testCase2LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(-1, -0);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testCase3LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(-1, 1);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testCase4LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(-1, 2);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testCase5LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(-1, 3);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testCase6LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(-1, -4);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testCase7LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(-1, -5);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testCase8LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(0, -1);
+	}
+	
+	@Test
+	public void testCase9LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(0, 0);
+		assert(resul == 0);
+	}
+	
+	@Test
+	public void testCase10LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(0, 1);
+		assert(resul == 5);
+	}
+	
+	@Test
+	public void testCase11LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(0, 2);
+		assert(resul == 5);
+	}
+	
+	@Test
+	public void testCase12LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(0, 3);
+		assert(resul == 2);
+	}
+	
+	@Test
+	public void testCase13LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(0,4);
+		assert(resul == 11);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testCase14LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(0, 5);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testCase15LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(1, -1);
+	}
+	
+	@Test
+	public void testCase16LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(1, 0);
+		assert(resul == 5);
+	}
+	
+	@Test
+	public void testCase17LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(1, 1);
+		assert(resul == 0);
+	}
+	
+	@Test
+	public void testCase18LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(1, 2);
+		assert(resul == 7);
+	}
+	
+	@Test
+	public void testCase19LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(1, 3);
+		assert(resul == 3.0);
+	}
+	
+	@Test
+	public void testCase20LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(1, 4);
+		assert(resul == 13);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testCase21LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(1, 5);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testCase22LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(2, -1);
+	}
+	
+	@Test
+	public void testCase23LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(2, 0);
+		assert(resul == 5);
+	}
+	
+	@Test
+	public void testCase24LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(2, 1);
+		assert(resul == 7);
+	}
+	
+	@Test
+	public void testCase25LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(2, 2);
+		assert(resul == 0);
+	}
+	
+	@Test
+	public void testCase26LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(2, 3);
+		assert(resul == 4);
+	}
+	
+	@Test
+	public void testCase27LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(2, 4);
+		assert(resul == 6);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testCase28LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(2, 5);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testCase29LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(3, -1);
+	}
+	
+	@Test
+	public void testCase30LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(3, 0);
+		assert(resul == 2);
+	}
+	
+	@Test
+	public void testCase31LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(3, 1);
+		assert(resul == 3);
+	}
+	
+	@Test
+	public void testCase32LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(3, 2);
+		assert(resul == 4);
+	}
+	
+	@Test
+	public void testCase33LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(3, 3);
+		assert(resul == 0);
+	}
+	
+	@Test
+	public void testCase34LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(3, 4);
+		assert(resul == 10);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testCase35LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(3, 5);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testCase36LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(4, -1);
+	}
+	
+	@Test
+	public void testCase37LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(4, 0);
+		assert(resul == 11);
+	}
+	
+	@Test
+	public void testCase38LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(4, 1);
+		assert(resul == 13);
+	}
+	
+	@Test
+	public void testCase39LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(4, 2);
+		assert(resul == 6);
+	}
+	
+	@Test
+	public void testCase40LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(4, 3);
+		assert(resul == 10);
+	}
+	
+	@Test
+	public void testCase41LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(4, 4);
+		assert(resul == 0);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testCase42LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(4, 5);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testCase43LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(5, -1);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testCase44LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(5, 0);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testCase45LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(5, 1);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testCase46LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(5, 2);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testCase47LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(5, 3);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testCase48LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(5, 4);
+	}
+	
+	@Test(expected = Exception.class)
+	public void testCase49LimitValuesShortestPath() {
+		Double resul = diklstraNentriesCinco.computeShortestPath(5, 5);
+	}
 
+	
+	
+		/***************************************** FIN VALORES LÍMITES *****************************************/
 
 }
