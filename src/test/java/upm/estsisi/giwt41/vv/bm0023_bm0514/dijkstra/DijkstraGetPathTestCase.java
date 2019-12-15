@@ -160,7 +160,564 @@ public class DijkstraGetPathTestCase {
 		dijkstra.setExec(true);
 		ArrayList<Integer> path = dijkstra.getPath(-1, 5);
 	}
-	
+	@Test(expected = Exception.class)
+	public void testCase8LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {-1, 3, 0, 0, 2};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(0, -1);
+	}
+	@Test
+	public void testCase9LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {-1, 3, 0, 0, 2};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(0, 0);
+		
+		ArrayList<Integer> pathEsperado = new ArrayList<Integer>();
+		pathEsperado.add(new Integer(0));
+		
 
+	
+		assertTrue(path.equals(pathEsperado));
+	}
+	@Test
+	public void testCase10LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {-1, 3, 0, 0, 2};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(0, 1);
+		
+		ArrayList<Integer> pathEsperado = new ArrayList<Integer>();
+		pathEsperado.add(new Integer(1));
+		pathEsperado.add(new Integer(3));
+		pathEsperado.add(new Integer(0));
+
+	
+		assertTrue(path.equals(pathEsperado));
+	}
+	@Test
+	public void testCase11LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {-1, 3, 0, 0, 2};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(0, 2);
+		
+		ArrayList<Integer> pathEsperado = new ArrayList<Integer>();
+		pathEsperado.add(new Integer(2));
+		pathEsperado.add(new Integer(0));
+		
+
+	
+		assertTrue(path.equals(pathEsperado));
+	}
+	@Test
+	public void testCase12LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {-1, 3, 0, 0, 2};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(0, 3);
+		
+		ArrayList<Integer> pathEsperado = new ArrayList<Integer>();
+		pathEsperado.add(new Integer(3));
+		pathEsperado.add(new Integer(0));
+		
+
+	
+		assertTrue(path.equals(pathEsperado));
+	}
+	@Test
+	public void testCase13LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {-1, 3, 0, 0, 2};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(0, 4);
+		
+		ArrayList<Integer> pathEsperado = new ArrayList<Integer>();
+		pathEsperado.add(new Integer(4));
+		pathEsperado.add(new Integer(2));
+		pathEsperado.add(new Integer(0));
+		
+
+	
+		assertTrue(path.equals(pathEsperado));
+	}
+	@Test(expected = Exception.class)
+	public void testCase14LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {-1, 3, 0, 0, 2};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(0, 5);
+	}
+	@Test(expected = Exception.class)
+	public void testCase15LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {3, -1, 3, 1, 2};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(1, -1);
+	}
+	@Test
+	public void testCase16LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {3, -1, 3, 1, 2};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(1, 0);
+		
+		ArrayList<Integer> pathEsperado = new ArrayList<Integer>();
+		pathEsperado.add(new Integer(0));
+		pathEsperado.add(new Integer(3));
+		pathEsperado.add(new Integer(1));
+		
+
+	
+		assertTrue(path.equals(pathEsperado));
+	}
+	@Test
+	public void testCase17LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {3, -1, 3, 1, 2};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(1, 1);
+		
+		ArrayList<Integer> pathEsperado = new ArrayList<Integer>();
+		pathEsperado.add(new Integer(1));
+		
+
+	
+		assertTrue(path.equals(pathEsperado));
+	}
+	@Test
+	public void testCase18LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {3, -1, 3, 1, 2};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(1, 2);
+		
+		ArrayList<Integer> pathEsperado = new ArrayList<Integer>();
+		pathEsperado.add(new Integer(2));
+		pathEsperado.add(new Integer(3));
+		pathEsperado.add(new Integer(1));
+		
+
+	
+		assertTrue(path.equals(pathEsperado));
+	}
+	@Test
+	public void testCase19LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {3, -1, 3, 1, 2};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(1, 3);
+		
+		ArrayList<Integer> pathEsperado = new ArrayList<Integer>();
+		pathEsperado.add(new Integer(3));
+		pathEsperado.add(new Integer(1));
+		
+
+	
+		assertTrue(path.equals(pathEsperado));
+	}
+	@Test
+	public void testCase20LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {3, -1, 3, 1, 2};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(1, 4);
+		
+		ArrayList<Integer> pathEsperado = new ArrayList<Integer>();
+		pathEsperado.add(new Integer(4));
+		pathEsperado.add(new Integer(2));
+		pathEsperado.add(new Integer(3));
+		pathEsperado.add(new Integer(1));
+		
+
+	
+		assertTrue(path.equals(pathEsperado));
+	}
+	@Test(expected = Exception.class)
+	public void testCase21LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {3, -1, 3, 1, 2};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(1, 5);
+	}
+	@Test(expected = Exception.class)
+	public void testCase22LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {2, 3, -1, 2, 2};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(2, -1);
+	}
+	@Test
+	public void testCase23LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {2, 3, -1, 2, 2};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(2, 0);
+		
+		ArrayList<Integer> pathEsperado = new ArrayList<Integer>();
+		pathEsperado.add(new Integer(0));
+		pathEsperado.add(new Integer(2));
+		
+
+	
+		assertTrue(path.equals(pathEsperado));
+	}
+	@Test
+	public void testCase24LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {2, 3, -1, 2, 2};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(2, 1);
+		
+		ArrayList<Integer> pathEsperado = new ArrayList<Integer>();
+		pathEsperado.add(new Integer(1));
+		pathEsperado.add(new Integer(3));
+		pathEsperado.add(new Integer(2));
+		
+
+	
+		assertTrue(path.equals(pathEsperado));
+	}
+	@Test
+	public void testCase25LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {2, 3, -1, 2, 2};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(2, 2);
+		
+		ArrayList<Integer> pathEsperado = new ArrayList<Integer>();
+		pathEsperado.add(new Integer(2));
+		
+
+	
+		assertTrue(path.equals(pathEsperado));
+	}
+	@Test
+	public void testCase26LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {2, 3, -1, 2, 2};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(2, 3);
+		
+		ArrayList<Integer> pathEsperado = new ArrayList<Integer>();
+		pathEsperado.add(new Integer(3));
+		pathEsperado.add(new Integer(2));
+		
+
+	
+		assertTrue(path.equals(pathEsperado));
+	}
+	@Test
+	public void testCase27LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {2, 3, -1, 2, 2};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(2, 4);
+		
+		ArrayList<Integer> pathEsperado = new ArrayList<Integer>();
+		pathEsperado.add(new Integer(4));
+		pathEsperado.add(new Integer(2));
+		
+
+	
+		assertTrue(path.equals(pathEsperado));
+	}
+	
+	
+	@Test(expected = Exception.class)
+	public void testCase28LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {2, 3, -1, 2, 2};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(2, 5);
+	}
+	@Test(expected = Exception.class)
+	public void testCase29LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {3, 3, 3, -1, 2};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(3, -1);
+	}
+	@Test
+	public void testCase30LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {3, 3, 3, -1, 2};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(3, 0);
+		
+		ArrayList<Integer> pathEsperado = new ArrayList<Integer>();
+		pathEsperado.add(new Integer(0));
+		pathEsperado.add(new Integer(3));
+		
+
+	
+		assertTrue(path.equals(pathEsperado));	
+	}
+	@Test
+	public void testCase31LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {3, 3, 3, -1, 2};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(3, 1);
+		
+		ArrayList<Integer> pathEsperado = new ArrayList<Integer>();
+		pathEsperado.add(new Integer(1));
+		pathEsperado.add(new Integer(3));
+		
+
+	
+		assertTrue(path.equals(pathEsperado));	
+	}
+	@Test
+	public void testCase32LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {3, 3, 3, -1, 2};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(3, 2);
+		
+		ArrayList<Integer> pathEsperado = new ArrayList<Integer>();
+		pathEsperado.add(new Integer(2));
+		pathEsperado.add(new Integer(3));
+		
+
+	
+		assertTrue(path.equals(pathEsperado));	
+	}
+	@Test
+	public void testCase33LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {3, 3, 3, -1, 2};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(3, 3);
+		
+		ArrayList<Integer> pathEsperado = new ArrayList<Integer>();
+		pathEsperado.add(new Integer(3));
+		
+
+	
+		assertTrue(path.equals(pathEsperado));	
+	}
+	@Test
+	public void testCase34LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {3, 3, 3, -1, 2};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(3, 4);
+		
+		ArrayList<Integer> pathEsperado = new ArrayList<Integer>();
+		pathEsperado.add(new Integer(4));
+		pathEsperado.add(new Integer(2));
+		pathEsperado.add(new Integer(3));
+		
+
+	
+		assertTrue(path.equals(pathEsperado));	
+	}
+
+	@Test(expected = Exception.class)
+	public void testCase35LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {3, 3, 3, -1, 2};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(3, 5);
+	}
+	@Test(expected = Exception.class)
+	public void testCase36LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {2, 3, 4, 2, -1};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(4, -1);
+	}
+	@Test
+	public void testCase37LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {2, 3, 4, 2, -1};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(4, 0);
+		
+		ArrayList<Integer> pathEsperado = new ArrayList<Integer>();
+		pathEsperado.add(new Integer(0));
+		pathEsperado.add(new Integer(2));
+		pathEsperado.add(new Integer(4));
+		
+
+	
+		assertTrue(path.equals(pathEsperado));	
+	}
+	@Test
+	public void testCase38LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {2, 3, 4, 2, -1};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(4, 1);
+		
+		ArrayList<Integer> pathEsperado = new ArrayList<Integer>();
+		pathEsperado.add(new Integer(1));
+		pathEsperado.add(new Integer(3));
+		pathEsperado.add(new Integer(2));
+		pathEsperado.add(new Integer(4));
+		
+
+	
+		assertTrue(path.equals(pathEsperado));	
+	}
+	@Test
+	public void testCase39LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {2, 3, 4, 2, -1};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(4, 2);
+		
+		ArrayList<Integer> pathEsperado = new ArrayList<Integer>();
+		pathEsperado.add(new Integer(2));
+		pathEsperado.add(new Integer(4));
+		
+
+	
+		assertTrue(path.equals(pathEsperado));	
+	}
+	@Test
+	public void testCase40LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {2, 3, 4, 2, -1};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(4, 3);
+		
+		ArrayList<Integer> pathEsperado = new ArrayList<Integer>();
+		pathEsperado.add(new Integer(3));
+		pathEsperado.add(new Integer(2));
+		pathEsperado.add(new Integer(4));
+		
+
+	
+		assertTrue(path.equals(pathEsperado));	
+	}
+	@Test
+	public void testCase41LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {2, 3, 4, 2, -1};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(4, 4);
+		
+		ArrayList<Integer> pathEsperado = new ArrayList<Integer>();
+		pathEsperado.add(new Integer(4));
+		
+
+	
+		assertTrue(path.equals(pathEsperado));	
+	}
+	@Test(expected = Exception.class)
+	public void testCase42LimitValuesGetPath() {
+		
+		Integer[] prev = new Integer[] {2, 3, 4, 2, -1};
+		
+		dijkstra.setPrev(prev);
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(4, 5);
+	}
+	@Test(expected = Exception.class)
+	public void testCase43LimitValuesGetPath() {
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(5, -1);
+	}
+	@Test(expected = Exception.class)
+	public void testCase44LimitValuesGetPath() {
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(5, 0);
+	}
+	@Test(expected = Exception.class)
+	public void testCase45LimitValuesGetPath() {
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(5, 1);
+	}
+	@Test(expected = Exception.class)
+	public void testCase46LimitValuesGetPath() {
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(5, 2);
+	}
+	@Test(expected = Exception.class)
+	public void testCase47LimitValuesGetPath() {
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(5, 3);
+	}
+	@Test(expected = Exception.class)
+	public void testCase48LimitValuesGetPath() {
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(5, 4);
+	}
+	@Test(expected = Exception.class)
+	public void testCase49LimitValuesGetPath() {
+		dijkstra.setExec(true);		
+		ArrayList<Integer> path = dijkstra.getPath(5, 5);
+	}
 	/***************************************** VALORES LÍMITES *****************************************/
 }
