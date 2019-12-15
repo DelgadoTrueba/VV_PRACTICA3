@@ -93,7 +93,7 @@ public class AgendaAddEntryTestCase {
     }  
 	
 	/*****************************  CAMINOS MÍNIMOS **********************************/
-/*
+
 	@Test
  
 	public void testCase1AddEntry(){
@@ -139,11 +139,11 @@ public class AgendaAddEntryTestCase {
 		assertTrue(agendaPrimeraEntradaJoseDelgado.getFirst().info == eJoseDelgado);
 		assertTrue(agendaPrimeraEntradaJoseDelgado.getFirst().sig.info == eLuisGarcia);
 	}
-*/	
+
 	/***************************** FIN CAMINOS MÍNIMOS **********************************/
 
 	/*****************************  CONDICIONES MULTICLAUSULA **********************************/
-/*	
+	
 	@Test
 	public void testCase1MultCondicionAddEntry() {
 		
@@ -217,12 +217,12 @@ public class AgendaAddEntryTestCase {
 		assertTrue(agendaVacia.getFirst().info == eJoseDelgado);
 
 	}
-	*/
+
 	/*****************************  FIN CONDICIONES MULTICLAUSULA **********************************/
 	
 
 	/*****************************  CLASES DE EQUIVALENCIA **********************************/
-	/*
+	
 	@Test
 	public void testCase1EquivalenceClassAddEntry() {
 		
@@ -252,7 +252,7 @@ public class AgendaAddEntryTestCase {
 		
 		boolean resul = agendaVariasEntradas.addEntry(null);
 	}
-	*/
+	
 	/*****************************  FIN CLASES DE EQUIVALENCIA **********************************/
     /***************************** VALORES LÍMITES *****************************/
 	@Test
